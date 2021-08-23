@@ -1,8 +1,8 @@
 #!/bin/sh
 
 # VLESS new configuration
-install -d /usr/local/etc/v2ray
-cat << EOF > /usr/local/etc/v2ray/config.json
+install -d /usr/local/etc/xray
+cat << EOF > /usr/local/etc/xray/config.json
 {
     "log": {
         "loglevel": "none"
@@ -51,4 +51,4 @@ sed -e "1c :$PORT" -e "s/\$ID/$ID/g" -e "s/\$EMAIL/$EMAIL/g" -e "s/\$API_KEY/$AP
 rm -rf /conf
 
 # Run VLESS
-/usr/local/bin/v2ray -config /usr/local/etc/v2ray/config.json & /usr/bin/caddy run --config /etc/caddy/Caddyfile --adapter caddyfile
+/usr/local/bin/xray -config /usr/local/etc/xray/config.json & /usr/bin/caddy run --config /etc/caddy/Caddyfile --adapter caddyfile
